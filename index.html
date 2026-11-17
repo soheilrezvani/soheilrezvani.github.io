@@ -1,5 +1,347 @@
 <!DOCTYPE html>
-<html>
-  <head><title>Soheil Rezvani</title></head>
-  <body><h1>Hello, I'm Soheil — portfolio coming soon.</h1></body>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soheil Rezvani — Senior Android Engineer</title>
+<meta name="description" content="Senior Android Engineer in Munich. 11 years building Kotlin apps, SDKs and AOSP platform features for fintech, automotive, e-commerce and delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e1013; --surface:#15181d; --surface-2:#1b1f25; --line:#262b33;
+  --text:#e8e6e1; --muted:#9aa0a8; --accent:#3ddc84; --accent-dim:rgba(61,220,132,.12);
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:10;background:rgba(14,16,19,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.brand{font-family:var(--mono);font-size:14px;text-decoration:none}
+.brand span{color:var(--accent)}
+.nav ul{display:flex;gap:20px;list-style:none}
+.nav ul a{font-size:14px;color:var(--muted);text-decoration:none}
+.nav ul a:hover{color:var(--text)}
+.lang{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--muted);font-family:var(--mono);font-size:12px;padding:6px 10px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent-dim);color:var(--accent)}
+
+/* hero */
+.hero{padding:96px 0 72px}
+.eyebrow{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:16px}
+.hero h1{font-size:clamp(40px,7vw,64px);line-height:1.05;letter-spacing:-.02em;font-weight:700}
+.hero .role{font-size:clamp(18px,2.6vw,22px);color:var(--muted);margin-top:12px}
+.hero .tagline{max-width:640px;margin-top:24px;font-size:18px}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--line);border-radius:8px;text-decoration:none;font-size:14px;background:var(--surface)}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:#06210f;border-color:var(--accent);font-weight:600}
+
+/* sections */
+section.block{padding:64px 0;border-top:1px solid var(--line)}
+.block h2{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:28px}
+.about p{font-size:17px;max-width:720px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{font-size:15px;font-weight:600;margin-bottom:12px}
+.card .sub{font-size:14px;color:var(--muted);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:12px;padding:4px 8px;border-radius:6px;background:var(--surface-2);border:1px solid var(--line)}
+
+/* experience */
+.job{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:28px 0;border-bottom:1px dashed var(--line)}
+.job:first-of-type{padding-top:0}
+.job:last-child{border-bottom:0}
+.when{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:4px}
+.job h3{font-size:19px;font-weight:600;line-height:1.3}
+.job .company{color:var(--accent)}
+.job .meta{color:var(--muted);font-size:14px;margin:4px 0 12px}
+.job .note{font-size:15px;color:var(--muted);margin-bottom:8px}
+.team{margin-top:18px}
+.team h4{font-size:15px;font-weight:600}
+.team p{font-size:15px;color:var(--muted);margin:2px 0 6px}
+ul.points{list-style:none}
+ul.points li{position:relative;padding-left:18px;margin:7px 0;font-size:15px}
+ul.points li::before{content:"▹";position:absolute;left:0;color:var(--accent)}
+ul.points b{font-weight:600}
+
+/* projects */
+.status{font-family:var(--mono);font-size:11px;color:var(--accent);background:var(--accent-dim);padding:2px 8px;border-radius:999px;display:inline-block;margin-bottom:10px}
+.project p{font-size:15px;color:var(--muted);margin-bottom:14px}
+
+/* education / awards */
+.item{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:12px 0}
+.item h3{font-size:16px;font-weight:600}
+.item p{font-size:15px;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:13px;font-family:var(--mono)}
+
+[dir="rtl"] ul.points li{padding-left:0;padding-right:18px}
+[dir="rtl"] ul.points li::before{left:auto;right:0;content:"◃"}
+
+@media (max-width:760px){
+  .nav ul{display:none}
+  .job,.item{grid-template-columns:1fr;gap:6px}
+  .hero{padding:64px 0 48px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">soheil<span>.</span>rezvani</a>
+    <ul id="navlinks"></ul>
+    <div class="lang" id="lang"></div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer><div class="wrap" id="footer"></div></footer>
+
+<script>
+/* =====================================================================
+   SITE CONFIG — links shown in the header area of the page
+   ===================================================================== */
+const SITE = {
+  name: "Soheil Rezvani",
+  links: [
+    { label: "Email me", url: "mailto:soheilrezvani@gmail.com", primary: true },
+    { label: "GitHub", url: "https://github.com/soheilrezvani" },
+    // { label: "LinkedIn", url: "https://www.linkedin.com/in/YOUR-HANDLE" },
+  ],
+};
+
+/* =====================================================================
+   CONTENT — one block per language. To add a language, copy the "en"
+   block, change the key (e.g. "de"), label and texts. For a right-to-left
+   language set dir: "rtl". Empty sections are hidden automatically.
+   ===================================================================== */
+const I18N = {
+  en: {
+    label: "EN",
+    dir: "ltr",
+    ui: {
+      about: "About",
+      skills: "Core competencies",
+      experience: "Experience",
+      projects: "Personal projects",
+      education: "Education",
+      courses: "Courses & learning",
+      awards: "Awards",
+      footer: "Built with plain HTML · Hosted on GitHub Pages",
+    },
+    hero: {
+      eyebrow: "Hi, I'm",
+      role: "Senior Android Engineer · Munich, Germany",
+      tagline: "11 years building Android apps, SDKs and AOSP platform features for fintech, automotive, e-commerce and delivery — some of them used by millions of people.",
+    },
+    about: [
+      "I’m a Senior Android Engineer. For 11 years I’ve built apps in fintech (mobile banking and payments), e-commerce and delivery, some of them used by millions of people. I write Kotlin every day, mostly Compose and Coroutines/Flow, and I’ve built SDKs that 16+ teams depend on.",
+      "I like old codebases. A lot of my work has been taking tangled Java and early Kotlin apps and turning them into modular projects people can change without fear.",
+      "I’ve also worked below the app layer, in the Android framework and AOSP. I’m comfortable outside Android too — Python, Java and backend services, SQL, some C++ — which helps when a problem doesn’t stop at the app.",
+      "Right now I’m working on on-device AI: running a small LLM locally to answer questions about your diet and gym plans, without your data ever leaving the phone.",
+    ],
+    skills: [
+      { title: "Android", items: ["Kotlin", "Java", "Jetpack Compose", "Coroutines & Flow", "Kotlin Multiplatform"] },
+      { title: "Architecture & DI", items: ["Hilt", "Dagger", "Koin", "Gradle", "Modularization"] },
+      { title: "Testing", items: ["JUnit", "MockK", "Mockito", "JaCoCo"] },
+      { title: "Library & SDK design", items: ["Reusable SDKs", "Public API design", "Versioning", "Cross-team integration"] },
+      { title: "AOSP / Platform", items: ["HAL", "HIDL / AIDL", "SOME/IP", "SELinux policies", "Gerrit"] },
+      { title: "AI & LLMs", items: ["On-device LLMs", "AI agents", "Function calling"] },
+      { title: "Other languages", items: ["Python", "C++", "CMake", "SQL"] },
+      { title: "Databases", items: ["Room", "SQLite", "SQL Server", "MySQL", "Firebase"] },
+      { title: "Tools & CI/CD", items: ["Git", "Docker", "Podman", "Azure Pipelines", "Zuul", "SonarQube", "Jira", "Confluence", "Figma"] },
+      { title: "Spoken languages", items: ["Persian — native", "English — fluent", "German — A2"] },
+    ],
+    experience: [
+      {
+        company: "Paradox Cat GmbH",
+        role: "Senior Android Developer",
+        location: "Munich, Germany",
+        period: "2023 — Present",
+        note: "Automotive HMI software specialist and official software partner of BMW.",
+        teams: [
+          {
+            name: "DataPrivacyApp team",
+            summary: "Full ownership of the privacy settings surface for BMW infotainment — all privacy and consent controls across global regions.",
+            points: [
+              ["Full-stack AOSP:", "worked across the whole stack, from C++ HAL layers and Java/Kotlin platform services to app components — custom system managers, SDK add-ons and backend API integrations."],
+              ["SDK architecture:", "designed shared libraries and SDKs with multiple teams, standardising API contracts, integration workflows and abstraction layers — including a multi-scenario Countly analytics wrapper with contextual metadata."],
+              ["Automotive UI:", "built Jetpack Compose components for next-generation in-vehicle infotainment apps."],
+              ["Architecture & compliance:", "worked with software architects on requirements and feature architecture, enforcing strict security and privacy standards."],
+              ["Quality & CI/CD:", "integrated JaCoCo coverage and SonarQube quality gates into multi-module CI pipelines; tracked down complex production defects and shipped patches."],
+            ],
+          },
+          {
+            name: "Team Tiger — Connectivity",
+            summary: "Core connectivity of BMW infotainment: calls, Bluetooth and in-cabin Wi-Fi.",
+            points: [
+              ["eSIM ↔ Bluetooth contact sync:", "designed and built from scratch a telephony feature that links the car’s onboard eSIM contacts with connected Bluetooth HFP phones — architecture, implementation, system integration and validation."],
+              ["Device projection:", "improved the reliability of automatic reconnection for Apple CarPlay and Android Auto."],
+              ["Calls & media:", "improved eSIM call handling and Bluetooth A2DP connectivity for a more stable media experience."],
+            ],
+          },
+        ],
+      },
+      {
+        company: "Jay GmbH (Jaaims)",
+        role: "Senior Android Engineer",
+        location: "Sydney, Australia · Remote",
+        period: "Feb 2021 — Feb 2023",
+        points: [
+          ["AI trading platform:", "architected and built an AI-driven trading and investment app from scratch — real-time market data, stock and crypto portfolios and an integrated digital wallet — owning end-to-end system design."],
+          ["Architecture:", "single-activity app on Clean Architecture + MVVM with Jetpack Compose, Hilt and Navigation; multi-module setup for strict feature boundaries and independent delivery."],
+          ["Performance:", "reduced startup time, cut allocations in hot paths and profiled rendering to keep real-time data streams smooth."],
+          ["Quality:", "unit and integration tests; refactored legacy code while keeping the app stable for international users."],
+        ],
+      },
+      {
+        company: "Faraz Pardazan",
+        role: "Senior Android Developer",
+        location: "Tehran, Iran",
+        period: "Jan 2018 — Dec 2020",
+        points: [
+          ["Mobile banking:", "built the Eghtesad Novin Bank app from scratch — one of Iran’s best-known banks — reaching millions of active users at launch, with a 99.9% crash-free rate across all releases."],
+          ["PFM & refactoring:", "built the Fanoos personal-finance app from zero and led the Hamrah-card refactor to MVVM + Clean Architecture."],
+          ["Kotlin migration:", "drove a full Java → Kotlin migration and moved 3 apps from legacy MVP to MVVM — adopted org-wide, improving developer velocity and removing whole classes of runtime errors."],
+        ],
+      },
+      {
+        company: "WebHouse",
+        role: "Android Developer",
+        location: "Tehran, Iran",
+        period: "2016 — 2018",
+        note: "Built and shipped Android apps for clients in delivery, e-commerce and healthcare.",
+        points: [
+          ["Ride-hailing & courier:", "two-sided app for rides and same-day parcel delivery, with real-time driver tracking over WebSocket tuned for battery, memory and network on low-end devices; full order lifecycle from matching to payment and rating."],
+          ["Marketplace e-commerce:", "two-sided marketplace — search, cart, checkout with payment integration and order tracking for buyers; listings, inventory and order management for sellers."],
+          ["Telehealth:", "connected patients and doctors through in-app video calls, chat and medical document upload."],
+        ],
+      },
+      {
+        company: "MitroTek HB",
+        role: "Mobile Application Developer",
+        location: "Stockholm, Sweden · Remote",
+        period: "2015 — 2016",
+        points: [
+          ["Location discovery:", "contributed to a Foursquare-style places and ratings app — my first distributed, international team."],
+        ],
+      },
+    ],
+    projects: [
+      {
+        title: "On-device AI health assistant",
+        status: "In progress",
+        description: "A small LLM running locally on Android that answers questions about your diet and gym plans — private by design, with no data sent to a server.",
+        tags: ["Kotlin", "Jetpack Compose", "On-device LLM"],
+        // url: "https://github.com/soheilrezvani/REPO",
+      },
+    ],
+    // { period, title, place, note } — period is optional
+    education: [
+      { period: "", title: "BSc Computer Software Engineering", place: "Shomal University, Iran" },
+    ],
+    courses: [
+      { period: "2025", title: "Generative AI for Developers", place: "Google Cloud · Online" },
+      { period: "2025", title: "AI Agent Development", place: "Personal project · Workflow automation" },
+      { period: "2024", title: "Android OS Internals & AOSP Automotive ROM Development", place: "Udemy" },
+    ],
+    // e.g. { period: "2019", title: "Award name", place: "Issuer", note: "Short description" }
+    awards: [],
+  },
+};
+
+/* =====================================================================
+   RENDERING — no need to edit below this line
+   ===================================================================== */
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+
+const points = list => list && list.length
+  ? `<ul class="points">${list.map(p => Array.isArray(p)
+      ? `<li><b>${esc(p[0])}</b> ${esc(p[1])}</li>`
+      : `<li>${esc(p)}</li>`).join("")}</ul>` : "";
+
+const items = list => list.map(i => `
+  <div class="item">
+    <div class="when">${esc(i.period)}</div>
+    <div><h3>${esc(i.title)}</h3>${i.place ? `<p>${esc(i.place)}</p>` : ""}${i.note ? `<p>${esc(i.note)}</p>` : ""}</div>
+  </div>`).join("");
+
+function render(code) {
+  const t = I18N[code];
+  document.documentElement.lang = code;
+  document.documentElement.dir = t.dir || "ltr";
+
+  const sections = [
+    ["about", t.about?.length, `<div class="about">${t.about.map(p => `<p>${esc(p)}</p>`).join("")}</div>`],
+    ["skills", t.skills?.length, `<div class="grid">${(t.skills||[]).map(s => `
+        <div class="card"><h3>${esc(s.title)}</h3><div class="chips">${s.items.map(i => `<span class="chip">${esc(i)}</span>`).join("")}</div></div>`).join("")}</div>`],
+    ["experience", t.experience?.length, (t.experience||[]).map(j => `
+        <article class="job">
+          <div class="when">${esc(j.period)}</div>
+          <div>
+            <h3>${esc(j.role)} · <span class="company">${esc(j.company)}</span></h3>
+            <div class="meta">${esc(j.location)}</div>
+            ${j.note ? `<p class="note">${esc(j.note)}</p>` : ""}
+            ${points(j.points)}
+            ${(j.teams||[]).map(tm => `<div class="team"><h4>${esc(tm.name)}</h4><p>${esc(tm.summary)}</p>${points(tm.points)}</div>`).join("")}
+          </div>
+        </article>`).join("")],
+    ["projects", t.projects?.length, `<div class="grid">${(t.projects||[]).map(p => `
+        <div class="card project">
+          ${p.status ? `<span class="status">${esc(p.status)}</span>` : ""}
+          <h3>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)} ↗</a>` : esc(p.title)}</h3>
+          <p>${esc(p.description)}</p>
+          <div class="chips">${(p.tags||[]).map(x => `<span class="chip">${esc(x)}</span>`).join("")}</div>
+        </div>`).join("")}</div>`],
+    ["education", t.education?.length, items(t.education||[])],
+    ["courses", t.courses?.length, items(t.courses||[])],
+    ["awards", t.awards?.length, items(t.awards||[])],
+  ].filter(s => s[1]);
+
+  document.getElementById("app").innerHTML = `
+    <section class="hero" id="top"><div class="wrap">
+      <p class="eyebrow">${esc(t.hero.eyebrow)}</p>
+      <h1>${esc(SITE.name)}</h1>
+      <p class="role">${esc(t.hero.role)}</p>
+      <p class="tagline">${esc(t.hero.tagline)}</p>
+      <div class="links">${SITE.links.map(l => `<a class="btn${l.primary ? " primary" : ""}" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}</div>
+    </div></section>
+    ${sections.map(([id, , html]) => `<section class="block" id="${id}"><div class="wrap"><h2>${esc(t.ui[id])}</h2>${html}</div></section>`).join("")}`;
+
+  document.getElementById("navlinks").innerHTML =
+    sections.map(([id]) => `<li><a href="#${id}">${esc(t.ui[id])}</a></li>`).join("");
+
+  document.getElementById("footer").textContent = `© ${new Date().getFullYear()} ${SITE.name} · ${t.ui.footer}`;
+
+  const langs = Object.keys(I18N);
+  const box = document.getElementById("lang");
+  box.style.display = langs.length > 1 ? "" : "none";
+  box.innerHTML = langs.map(k => `<button type="button" data-lang="${k}" aria-pressed="${k === code}">${esc(I18N[k].label)}</button>`).join("");
+  box.querySelectorAll("button").forEach(b => b.onclick = () => {
+    try { localStorage.setItem("lang", b.dataset.lang); } catch (e) {}
+    render(b.dataset.lang);
+  });
+}
+
+function initialLang() {
+  const fromUrl = new URLSearchParams(location.search).get("lang");
+  if (fromUrl && I18N[fromUrl]) return fromUrl;
+  try { const saved = localStorage.getItem("lang"); if (saved && I18N[saved]) return saved; } catch (e) {}
+  const browser = (navigator.language || "en").slice(0, 2);
+  return I18N[browser] ? browser : "en";
+}
+
+render(initialLang());
+</script>
+</body>
 </html>
